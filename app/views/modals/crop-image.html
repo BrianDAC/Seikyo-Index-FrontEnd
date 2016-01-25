@@ -1,0 +1,16 @@
+<modal-template>
+    <div class="cropContainer">
+        <div class="cropArea">
+            <img-crop image="uncroppedImage" result-image="ctrl.img"
+                area-type="square"
+                result-image-size="400"
+                result-image-aspect="4x3">
+            </img-crop>
+        </div>
+    </div>
+    <div flex layout layout-align="end center">
+        <md-button class="md-primary" lock-async ng-click="cropImage()">
+            Listo
+        </md-button>
+    </div>
+</modal-template>

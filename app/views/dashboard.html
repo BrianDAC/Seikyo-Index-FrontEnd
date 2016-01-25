@@ -1,0 +1,218 @@
+<h1 class="md-title" align="center">Seikyos</h1>
+<h3 class="md-title">Elige un Año</h1>
+<div layout="row">
+    <md-input-container>
+     <label>Año</label>
+     <md-select ng-model="seikyoYear">
+       <md-option ng-repeat="year in years" value="{{year}}" ng-click="getSeikyos(year)">
+         {{year}}
+       </md-option>
+     </md-select>
+    </md-input-container>
+</div>
+<div ng-show="seikyo">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="position: relative;">
+      <b>Seikyo</b>
+        <button class="md-icon-button md-button md-ink-ripple" 
+                ng-click="cancel()" 
+                type="button"
+                style="right: 10px"
+                aria-expanded="false">
+            <md-icon class="ng-scope ng-isolate-scope material-icons">cancel</md-icon>
+        </button>
+        </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Year</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.year}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Month</b></div>
+          <div class="col-sm-8 col-md-8" ng-cloak>{{seikyo.date}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Advertisings</b></div>
+          <div class="col-sm-8 col-md-8">
+                <div ng-if="seikyo.advertising.length == 0">
+                    Ninguno
+                </div>
+              <div ng-if="seikyo.advertising.length != 0" ng-repeat="advertising in seikyo.advertising">
+                  {{advertising.name}}<span ng-if="!$last">,</span>
+              </div>
+          </div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Articles</b></div>
+          <div class="col-sm-8 col-md-8">
+              <div ng-if="seikyo.article.length == 0">
+                  Ninguno
+              </div>
+              <div ng-if="seikyo.article.length != 0" ng-repeat="article in seikyo.article">
+                  {{article.name}}<span ng-if="!$last">,</span>
+              </div>
+          </div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Basic Terms</b></div>
+            <div class="col-sm-8 col-md-8">
+            <div ng-if="seikyo.basicTerm.length == 0">
+                Ninguno
+            </div>
+              <div ng-if="seikyo.basicTerm.length != 0" ng-repeat="basicTerm in seikyo.basicTerm">
+                  {{basicTerm.name}}<span ng-if="!$last">,</span>
+              </div>
+          </div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Editorials</b></div>
+          <div class="col-sm-8 col-md-8">
+          <div ng-if="seikyo.editorial.length == 0">
+              Ninguno
+          </div>
+              <div ng-if="seikyo.editorial.length != 0" ng-repeat="editorial in seikyo.editorial">
+                  {{editorial.name}}<span ng-if="!$last">,</span>
+              </div>
+          </div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Experiences</b></div>
+          <div class="col-sm-8 col-md-8">
+              <div ng-if="seikyo.experience.length == 0">
+                  Ninguno
+              </div>
+              <div ng-if="seikyo.experience.length != 0" ng-repeat="experience in seikyo.experience">
+                  {{experience.name}} -- {{experience.owner}} -- {{experience.division.name}}<span ng-if="!$last">,</span>
+              </div>
+              </div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Future Groups</b></div>
+          <div class="col-sm-8 col-md-8">
+                <div ng-if="seikyo.futureGroup.length == 0">
+                    Ninguno
+                </div>
+              <div ng-if="seikyo.futureGroup.length != 0" ng-repeat="futureGroup in seikyo.futureGroup">
+                  {{futureGroup.name}}<span ng-if="!$last">,</span>
+              </div>
+          </div>        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Femenine Divisions</b></div>
+          <div class="col-sm-8 col-md-8">
+                <div ng-if="seikyo.femenineDivision.length == 0">
+                    Ninguno
+                </div>
+              <div ng-if="seikyo.femenineDivision.length != 0" ng-repeat="femenineDivision in seikyo.femenineDivision">
+                  {{femenineDivision.name}}<span ng-if="!$last">,</span>
+              </div>
+          </div>        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Masculine Divisions</b></div>
+          <div class="col-sm-8 col-md-8">
+                <div ng-if="seikyo.masculineDivision.length == 0">
+                    Ninguno
+                </div>
+              <div ng-if="seikyo.masculineDivision.length != 0" ng-repeat="masculineDivision in seikyo.masculineDivision">
+                  {{masculineDivision.name}}<span ng-if="!$last">,</span>
+              </div>
+          </div>        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Messages</b></div>
+          <div class="col-sm-8 col-md-8">
+                <div ng-if="seikyo.message.length == 0">
+                    Ninguno
+                </div>
+              <div ng-if="seikyo.message.length != 0" ng-repeat="message in seikyo.message">
+                  {{message.name}}<span ng-if="!$last">,</span>
+              </div>
+          </div>        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Monthly Phrases</b></div>
+          <div class="col-sm-8 col-md-8">
+                <div ng-if="seikyo.monthlyPhrase.length == 0">
+                    Ninguno
+                </div>
+              <div ng-if="seikyo.monthlyPhrase.length != 0" ng-repeat="monthlyPhrase in seikyo.monthlyPhrase">
+                  {{monthlyPhrase.name}}<span ng-if="!$last">,</span>
+              </div>
+          </div>        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Orientations</b></div>
+          <div class="col-sm-8 col-md-8">
+                <div ng-if="seikyo.orientation.length == 0">
+                    Ninguno
+                </div>
+              <div ng-if="seikyo.orientation.length != 0" ng-repeat="orientation in seikyo.orientation">
+                  {{orientation.name}}<span ng-if="!$last">,</span>
+              </div>
+          </div>        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Reviews</b></div>
+          <div class="col-sm-8 col-md-8">
+                <div ng-if="seikyo.review.length == 0">
+                    Ninguno
+                </div>
+              <div ng-if="seikyo.review.length != 0" ng-repeat="review in seikyo.review">
+                  {{review.name}}<span ng-if="!$last">,</span>
+              </div>
+          </div>        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Soka Advances</b></div>
+          <div class="col-sm-8 col-md-8">
+                <div ng-if="seikyo.sokaAdvance.length == 0">
+                    Ninguno
+                </div>
+              <div ng-if="seikyo.sokaAdvances.length != 0" ng-repeat="sokaAdvances in seikyo.sokaAdvances">
+                  {{sokaAdvances.name}}<span ng-if="!$last">,</span>
+              </div>
+          </div>        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Student Groups</b></div>
+          <div class="col-sm-8 col-md-8">
+                <div ng-if="seikyo.studentGroup.length == 0">
+                    Ninguno
+                </div>
+              <div ng-if="seikyo.studentGroup.length != 0" ng-repeat="studentGroup in seikyo.studentGroup">
+                  {{studentGroup.name}}<span ng-if="!$last">,</span>
+              </div>
+          </div>        </div>
+      </div>
+    </div>
+</div>
+<div ng-if="seikyos.length != 0">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Month</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="seikyo in seikyos">
+                <td>{{seikyo.year}}</td>
+                <td>{{seikyo.date}}</td>
+                <td>
+                    <button class="md-icon-button md-button md-ink-ripple" ng-click="showSeikyo($index)" type="button" aria-haspopup="true" aria-expanded="false">
+                        <md-icon class="ng-scope ng-isolate-scope material-icons">visibility</md-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

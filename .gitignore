@@ -1,0 +1,10 @@
+node_modules
+dist
+.tmp
+.sass-cache
+.idea
+app/scripts/services/backend-url.js
+bower_components
+app/fonts/vendor
+app/styles/main.css
+app/index.html

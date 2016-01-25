@@ -1,0 +1,79 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css /styles/main.css -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <title>Seikyo | Index</title>
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- endbuild -->
+    <base href="/">
+</head>
+<body ng-app="seikyo.index" ng-controller="MainCtrl" layout="column" flex>
+
+<toaster-container toaster-options="{'position-class': 'toast-bottom-left'}"></toaster-container>
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<md-toolbar class="md-whiteframe-z2">
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" ng-click="toggleSidenav()">
+            <md-icon>menu</md-icon>
+        </md-button>
+        <h3>
+            <a ui-sref="user.dashboard">
+                Seikyo | Index
+            </a>
+        </h3>
+        <span flex></span>
+        <md-menu md-position-mode="target-right target"
+            ng-cloak
+            ng-show="hasToken()">
+            <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                <md-icon>more_vert</md-icon>
+            </md-button>
+            <md-menu-content>
+                <!-- <md-menu-item> -->
+                <!--     <md-button ng-click="import($event)"> -->
+                <!--         <md-icon>file_upload</md-icon> -->
+                <!--         Importar -->
+                <!--     </md-button> -->
+                <!-- </md-menu-item> -->
+                <md-menu-item>
+                    <md-button ng-click="exit()" ui-sref="anon.login">
+                        <md-icon>power_settings_new</md-icon>
+                        Salir
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </div>
+</md-toolbar>
+
+<div layout="row" flex ui-view>
+</div>
+<!-- Add your site or application content here -->
+<!-- <div ui-view></div> -->
+
+<!-- build:vendor /scripts/vendor.js -->
+<!-- bower:js -->
+<!-- endbower -->
+<!-- endbuild -->
+
+
+<!-- build:app /scripts/scripts.js -->
+<!-- inject:js -->
+<!-- endinject -->
+<!-- endbuild -->
+</body>
+</html>

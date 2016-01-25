@@ -1,0 +1,131 @@
+$fa-font-path: "../fonts/vendor";
+
+// bower:scss
+@import "../bower_components/fg-modal/dist/fg-modal.scss";
+// endbower
+
+$sm: 600px;
+$md: 960px;
+$gt: 1200px;
+
+body, html, .full-height {
+    height: 100%;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.overflow-ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    min-height: 15px;
+    padding-top: 1px;
+}
+
+md-fab-speed-dial {
+    position: absolute;
+    bottom: 10px;
+    right: 25px;
+}
+
+.modal-wrapper {
+    display: inline-block;
+    background: white;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+md-fab-trigger .md-fab md-icon {
+    position: absolute;
+    top: 0; right: 0; left: 0; bottom: 0;
+    &.ng-hide-add, &.ng-hide-remove {
+        transition: all ease-out 0.25s;
+    }
+
+    &.ng-hide-remove {
+        opacity: 0;
+        transform: rotate(-120deg);
+    }
+
+    &.ng-hide-remove-active, &.ng-hide-add {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+
+    &.ng-hide-add-active {
+        transform: rotate(120deg);
+        opacity: 0;
+    }
+}
+
+upload img {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+.cropArea {
+    background: #E4E4E4;
+    overflow: hidden;
+    max-width:50vw;
+    height:350px;
+    margin: 0 auto;
+}
+
+.cropContainer{
+    min-width: 55vw;
+}
+
+.fg-modal-wrapper {
+    z-index: 60;
+    transition: opacity ease 0.3s;
+    background-color: rgba(103, 58, 183, 0.3);
+}
+
+.taima-modal-default {
+    z-index: 60;
+    &.ng-enter, &.ng-leave, &.ng-move {
+        transition: all ease 0.3s;
+    }
+
+    &.ng-enter {
+        top: -100px;
+        opacity: 0;
+    }
+
+    &.ng-enter-active, &.ng-leave {
+        top: 0;
+        opacity: 1;
+    }
+
+    &.ng-leave-active {
+        top: -100px;
+        opacity: 0;
+    }
+}

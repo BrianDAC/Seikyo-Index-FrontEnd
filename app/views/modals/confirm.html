@@ -1,0 +1,13 @@
+<modal-template>
+    <h4 flex>{{ message }}</h4>
+    <div flex layout layout-align="end end">
+        <md-button class="btn btn-default"
+            ng-click="$modal.dismiss()">
+            Cancelar
+        </md-button>
+        <md-button class="md-primary"
+            ng-click="$modal.accept()">
+            Aceptar
+        </md-button>
+    </div>
+</modal-template>
